@@ -1,8 +1,5 @@
-# Ignore Project File
-*.xcodeproj
-
-# Ignore generated files
-
-# Ignore OS X files
+# Ignore Project File Personal Data and .DS_Store
 .DS_Store
+*.xcodeproj/xcuserdata
+*.xcodeproj/project.xcworkspace/xcuserdata
 
