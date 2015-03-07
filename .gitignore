@@ -1,0 +1,8 @@
+# Ignore Project File
+*.xcodeproj
+
+# Ignore generated files
+
+# Ignore OS X files
+.DS_Store
+
