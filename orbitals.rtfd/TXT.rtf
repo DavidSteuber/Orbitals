@@ -1,0 +1,92 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+{\fonttbl\f0\fnil\fcharset0 Georgia;\f1\fswiss\fcharset0 Helvetica;\f2\fmodern\fcharset0 CourierNewPSMT;
+\f3\fnil\fcharset0 Menlo-Regular;\f4\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red170\green13\blue145;\red28\green0\blue207;\red100\green56\blue32;
+}
+\margl1440\margr1440\vieww12400\viewh12240\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
+
+\f0\fs96 \cf0 The Mandelbrot Set\
+
+\fs48 A view you probably haven't seen before\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
+
+\f1\fs24 \cf0 {{\NeXTGraphic test.tiff \width5760 \height4320
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
+
+\f0\fs48 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj
+
+\fs24 \cf0 The Mandelbrot Set (M) is probably the most iconic of all fractal images. The central cardioid with its multitude of disks is unmistakable. What's most remarkable about M is just how simple it is to compute. The following function is the basis of M:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
+
+\fs48 \cf0 Z
+\fs24 (n+1)
+\fs48  = Z
+\fs24 (n)
+\fs28 \up2 \super2 2
+\fs48 \up0 \nosupersub  + C\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj
+
+\fs24 \cf0 Where Z and C are complex numbers on the Complex Plain and n is an integer representing the iteration of the formula. C is some point on the Complex plain, say 
+\f2 (1.0, 0.4i)
+\f0 , and Z is initially 
+\f2 (0, 0i)
+\f0 . When C is a member of M, the formula can be iterated indefinitely without the amplitude of Z ever exceeding 
+\f2 2.0
+\f0 . Values of C outside the set will eventually escape towards \uc0\u8734 .\
+\
+What's tricky is determining if a value C is indeed a member of M. If you iterate forever, you will never get past the first point in the set. So an arbitrary bail out value is normally set. That way, your program can finish. Here is a simple example of C Programming Language code that determines if a point is a member of the set.\
+\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf2 \CocoaLigature0 int\cf0  computePoint(\cf2 double \cf0 cr,\cf2  double \cf0 ci)\
+\{\
+    \cf2 int\cf0  i;\
+    \cf2 double\cf0  zr, zr2, zi, zi2;\
+    zi = ci;\
+    zr = cr;\
+	\cf2 for\cf0  (i = \cf3 0\cf0 ; i < \cf4 MAX_ITERATIONS\cf0 ; i++) \{\
+		zr2 = zr * zr;\
+        zi2 = zi * zi;\
+		\cf2 if\cf0  (zr2 + zi2 > \cf3 4.0L\cf0 ) \{\
+			\cf2 break\cf0 ;\
+		\}\
+		zi = \cf3 2\cf0  * zr * zi + ci;\
+		zr = zr2 - zi2 + cr;\
+	\}\
+    \cf2 return\cf0  \cf3 i\cf0 ;\
+\}\
+\
+\pard\tx529\pardeftab529\pardirnatural\qj
+
+\f0\fs24 \cf0 This code performs the computation specified by the formula above for M. Instead of dealing with complex arithmetic, this example uses 
+\f2 IEEE-754
+\f0  double precision arithmetic. The escape value of 
+\f2 2.0
+\f0  is squared, yielding 
+\f2 4.0
+\f0  to avoid performing an expensive square root function. The return value is the number of iterations executed by the for loop. In practice, the return value can be used to map a color for the pixel at point C so that you can make a pretty picture.\
+\
+That's the traditional way to compute the points in M. Most real world code does periodicity checking or some other technique when C might be in M to reduce the total number of computations. I'm not showing any such tricks here. Instead, I wish to point out the properties of the points in M.\
+\
+The orbitals image was created by tracking the cumulative effect of Z as it is iterated for different values of C in the Complex Plain. The basic idea is to start out with a black image that goes from 
+\f2 (-2.0, 2.0i)
+\f0  to 
+\f2 (2.0, -2.0i)
+\f0  on the Complex Plain. These intervals contain M. For each value of Z, the corresponding point in the image is located and its intensity value is incremented. Because of the nature of Z's 
+\f4 \uc0\u8223 
+\f0 orbits\'94, the log function is used and a scaler is used so that the final values range from 
+\f2 0
+\f0  for values not in the set to 
+\f2 255
+\f0 , the brightest intensity available for an 8 bit greyscale image. The brighter the pixel, the more times Z landed in an interval covered by that pixel.\
+\
+The result is pretty interesting. So interesting in fact that to show as much detail as possible, a large image was produced. In this case, 
+\f2 8000x8000
+\f0  yielding a 64 megapixel image. I know that computer monitors are not large enough to display the entire image without scaling it down. But I would urge you to zoom to actual size and scroll around the image. There is a surprising amount of detail to be seen.\
+}
