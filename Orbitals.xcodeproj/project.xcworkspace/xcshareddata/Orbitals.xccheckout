@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>71ABA3A0-3C19-43C3-9110-11A5477BB616</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Orbitals</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>592AA619936B2A86BCCD1AA99860C73A41682B31</key>
+		<string>https://github.com/DavidSteuber/Orbitals.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Orbitals.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>592AA619936B2A86BCCD1AA99860C73A41682B31</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DavidSteuber/Orbitals.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>592AA619936B2A86BCCD1AA99860C73A41682B31</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>592AA619936B2A86BCCD1AA99860C73A41682B31</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Orbitals</string>
+		</dict>
+	</array>
+</dict>
+</plist>
